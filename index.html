@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Carter | Full-Stack Developer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="dtyle.css">
+   
+</head>
+<body class="font-inter">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="py-4 px-4 md:px-8" id="navbar">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#home" class="text-2xl font-bold font-space gradient-text">Naseer Pasha</a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="stagger-menu">
+                        <a href="#home" class="nav-link font-medium hover:text-primary transition-colors duration-300 mx-3">Home</a>
+                        <a href="#about" class="nav-link font-medium hover:text-primary transition-colors duration-300 mx-3">About</a>
+                        <a href="#skills" class="nav-link font-medium hover:text-primary transition-colors duration-300 mx-3">Skills</a>
+                        <a href="#experience" class="nav-link font-medium hover:text-primary transition-colors duration-300 mx-3">Experience</a>
+                        <a href="#projects" class="nav-link font-medium hover:text-primary transition-colors duration-300 mx-3">Projects</a>
+                        <a href="#contact" class="nav-link font-medium hover:text-primary transition-colors duration-300 mx-3">Contact</a>
+                    </div>
+                    
+                    <!-- Theme Toggle -->
+                    <div class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun sun-icon theme-icon"></i>
+                        <div class="theme-toggle-slider"></div>
+                        <i class="fas fa-moon moon-icon theme-icon"></i>
+                        <span id="themeText" class="theme-text">Light</span>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="absolute top-6 right-6 text-2xl mobile-menu-btn" id="closeMobileMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="space-y-6 mt-8">
+            <a href="#home" class="block text-2xl font-bold hover:text-primary transition-colors duration-300 py-4 border-b border-gray-200 dark:border-gray-800 stagger-menu">Home</a>
+            <a href="#about" class="block text-2xl font-bold hover:text-primary transition-colors duration-300 py-4 border-b border-gray-200 dark:border-gray-800 stagger-menu">About</a>
+            <a href="#skills" class="block text-2xl font-bold hover:text-primary transition-colors duration-300 py-4 border-b border-gray-200 dark:border-gray-800 stagger-menu">Skills</a>
+            <a href="#experience" class="block text-2xl font-bold hover:text-primary transition-colors duration-300 py-4 border-b border-gray-200 dark:border-gray-800 stagger-menu">Experience</a>
+            <a href="#projects" class="block text-2xl font-bold hover:text-primary transition-colors duration-300 py-4 border-b border-gray-200 dark:border-gray-800 stagger-menu">Projects</a>
+            <a href="#contact" class="block text-2xl font-bold hover:text-primary transition-colors duration-300 py-4 border-b border-gray-200 dark:border-gray-800 stagger-menu">Contact</a>
+            
+            <div class="pt-8 mt-8 border-t border-gray-200 dark:border-gray-800">
+                <div class="theme-toggle inline-flex justify-center w-full" id="mobileThemeToggle">
+                    <i class="fas fa-sun sun-icon theme-icon"></i>
+                    <div class="theme-toggle-slider"></div>
+                    <i class="fas fa-moon moon-icon theme-icon"></i>
+                    <span id="mobileThemeText" class="theme-text ml-3">Light</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- SECTION 1: Hero -->
+    <section id="home" class="pt-32 pb-20">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="space-y-8">
+                    <div class="zoom-out will-change" data-animate>
+                        <div class="text-primary font-medium mb-4 text-lg">Hello, I'm</div>
+                        <h1 class="text-5xl md:text-7xl font-bold font-space mb-6 stagger-text">
+                            <span class="gradient-text">Naseer Pasha</span>
+                        </h1>
+                        <div class="text-2xl md:text-3xl font-space mb-8">
+                            <span class="typewriter" id="typewriter"></span>
+                        </div>
+                        <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                            Full-Stack Developer & UI/UX Designer with 2+ years of experience creating digital experiences. Passionate about clean code, beautiful design, and cutting-edge technology.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4 zoom-out will-change" data-animate data-delay="200">
+                        <button class="px-8 py-4 hamburger-card border border-gray-200 dark:border-gray-800 rounded-xl font-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 btn-glow stagger-btn">
+                            <span><i class="fas fa-paper-plane mr-3"></i></span>
+                            <span>S</span><span>t</span><span>a</span><span>r</span><span>t</span>
+                            <span> </span>
+                            <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span>
+                        </button>
+                        <button class="px-8 py-4 hamburger-card border border-gray-200 dark:border-gray-800 rounded-xl font-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 btn-glow stagger-btn">
+                            <span><i class="fas fa-download mr-3"></i></span>
+                            <span>D</span><span>o</span><span>w</span><span>n</span><span>l</span><span>o</span><span>a</span><span>d</span>
+                            <span>  </span><span> </span>
+                            <span> R</span><span>e</span><span>s</span><span>u</span><span>m</span><span>e</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Content - Profile Picture -->
+                <div class="relative zoom-in will-change" data-animate>
+                    <div class="profile-container">
+                        <div class="profile-ring">
+                            <div class="profile-ring-inner">
+                                <img src="img/download.jpg" 
+                                     alt="Alex Carter" 
+                                     class="profile-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl rotate-12 float hamburger-card" style="animation-delay: 1s;"></div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-accent/20 to-primary/20 rounded-3xl -rotate-12 float hamburger-card" style="animation-delay: 2s;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: About -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="zoom-out will-change" data-animate>
+                    <h2 class="text-4xl md:text-5xl font-bold font-space mb-8">
+                        <span class="gradient-text">About Me</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        I'm a passionate developer who loves turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or mentoring aspiring developers.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                        My expertise includes building scalable web applications, creating responsive user interfaces, and implementing modern web technologies. I believe in writing clean, efficient code and creating exceptional user experiences.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+                        <div class="text-center p-4 hamburger-card zoom-in will-change" data-animate data-delay="100">
+                            <div class="text-3xl font-bold text-primary mb-2">2+</div>
+                            <div class="text-gray-600 dark:text-gray-400 text-sm">Years Experience</div>
+                        </div>
+                        <div class="text-center p-4 hamburger-card zoom-in will-change" data-animate data-delay="200">
+                            <div class="text-3xl font-bold text-secondary mb-2">60+</div>
+                            <div class="text-gray-600 dark:text-gray-400 text-sm">Projects Completed</div>
+                        </div>
+                        <div class="text-center p-4 hamburger-card zoom-in will-change" data-animate data-delay="300">
+                            <div class="text-3xl font-bold text-accent mb-2">0%</div>
+                            <div class="text-gray-600 dark:text-gray-400 text-sm">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-6">
+                        <div class="p-6 hamburger-card zoom-in will-change" data-animate data-delay="100">
+                            <i class="fas fa-graduation-cap text-3xl text-primary mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Education</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Information science & Engg , Global Acedamy of technology </p>
+                        </div>
+                        <div class="p-6 hamburger-card zoom-in will-change" data-animate data-delay="200">
+                            <i class="fas fa-map-marker-alt text-3xl text-secondary mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Location</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Banglore, India</p>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="p-6 hamburger-card zoom-in will-change" data-animate data-delay="300">
+                            <i class="fas fa-briefcase text-3xl text-accent mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Experience</h3>
+                            <p class="text-gray-600 dark:text-gray-400">2+ Years in Web Development</p>
+                        </div>
+                        <div class="p-6 hamburger-card zoom-in will-change" data-animate data-delay="400">
+                            <i class="fas fa-trophy text-3xl text-success mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Awards</h3>
+                            <p class="text-gray-600 dark:text-gray-400">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Skills & Technologies -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 zoom-in will-change" data-animate>
+                <h2 class="text-4xl md:text-5xl font-bold font-space mb-6">
+                    <span class="gradient-text">Skills & Technologies</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    I've worked with a wide range of technologies across the full stack. Here are my core competencies:
+                </p>
+            </div>
+
+            <!-- Tech Icons Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-20 mb-32">
+                <!-- HTML5 -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="0">
+                    <i class="fab fa-html5 text-orange-600"></i>
+                    <span class="text-sm font-medium mt-2">HTML5</span>
+                </div>
+                <!-- CSS3 -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="50">
+                    <i class="fab fa-css3-alt text-blue-500"></i>
+                    <span class="text-sm font-medium mt-2">CSS3</span>
+                </div>
+                <!-- JavaScript -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="100">
+                    <i class="fab fa-js text-yellow-500"></i>
+                    <span class="text-sm font-medium mt-2">JavaScript</span>
+                </div>
+                <!-- React -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="150">
+                    <i class="fab fa-react text-cyan-500"></i>
+                    <span class="text-sm font-medium mt-2">React</span>
+                </div>
+                <!-- Node.js -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="200">
+                    <i class="fab fa-node-js text-green-500"></i>
+                    <span class="text-sm font-medium mt-2">Node.js</span>
+                </div>
+                <!-- Python -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="250">
+                    <i class="fab fa-python text-blue-400"></i>
+                    <span class="text-sm font-medium mt-2">Python</span>
+                </div>
+                <!-- Git -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="300">
+                    <i class="fab fa-git-alt text-orange-600"></i>
+                    <span class="text-sm font-medium mt-2">Git</span>
+                </div>
+                <!-- Docker -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="350">
+                    <i class="fab fa-docker text-blue-600"></i>
+                    <span class="text-sm font-medium mt-2">Docker</span>
+                </div>
+                <!-- AWS -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="400">
+                    <i class="fab fa-aws text-orange-400"></i>
+                    <span class="text-sm font-medium mt-2">AWS</span>
+                </div>
+                <!-- MongoDB -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="450">
+                    <i class="fas fa-database text-green-600"></i>
+                    <span class="text-sm font-medium mt-2">MongoDB</span>
+                </div>
+                <!-- Tailwind CSS -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="500">
+                    <i class="fas fa-wind text-cyan-400"></i>
+                    <span class="text-sm font-medium mt-2">Tailwind</span>
+                </div>
+                <!-- TypeScript -->
+                <div class="tech-icon zoom-in will-change mx-auto" data-animate data-delay="550">
+                    <i class="fas fa-code text-blue-500"></i>
+                    <span class="text-sm font-medium mt-2">TypeScript</span>
+                </div>
+            </div>
+
+            <!-- Skill Bars -->
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 text-black">
+                <div class="zoom-out will-change" data-animate>
+                    <h3 class="text-2xl font-bold mb-8">Technical Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Frontend Development</span>
+                                <span class="font-bold text-primary">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Backend Development</span>
+                                <span class="font-bold text-primary">45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="45"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">UI/UX Design</span>
+                                <span class="font-bold text-primary">38%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="38"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="zoom-out will-change" data-animate>
+                    <h3 class="text-2xl font-bold mb-8">Soft Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Communication</span>
+                                <span class="font-bold text-success">62%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--success), #34d399);" data-width="62"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Problem Solving</span>
+                                <span class="font-bold text-success">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--success), #34d399);" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Team Leadership</span>
+                                <span class="font-bold text-success">63%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--success), #34d399);" data-width="63"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Experience -->
+    <section id="experience" class="py-20">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 zoom-in will-change" data-animate>
+                <h2 class="text-4xl md:text-5xl font-bold font-space mb-6">
+                    <span class="gradient-text">School & Collage Journey</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    My professional journey through the Acedamic field
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Timeline -->
+                <div class="relative">
+                   
+
+                    <div class="timeline-item zoom-in will-change" data-animate data-delay="100">
+                        <div class="hamburger-card p-6 md:p-8">
+                            <div class="text-primary font-bold mb-2">2025 - Present</div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-3">Engineering & Self-Driven Learning Phase</h3>
+                            <p class="text-secondary font-medium mb-4">GLOBAL ACEDAMY OF TECHONOLOGY • BANGLORE</p>
+                            <p class="text-gray-600 dark:text-gray-400">
+                               Following a self-driven learning approach to master web development and programming fundamentals.
+Developing projects using React, Tailwind CSS, and JavaScript.
+Applying Python and C++ for logic building and efficient problem-solving.
+Enhancing interfaces with smooth animations using GSAP.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item zoom-in will-change" data-animate data-delay="200">
+                        <div class="hamburger-card p-6 md:p-8">
+                            <div class="text-primary font-bold mb-2">2023 - 2025</div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-3">PU(PRE-UNIVERSITY)</h3>
+                            <p class="text-secondary font-medium mb-4">CAMBRIDGE PU COLLAGE • CHANNAPATNA</p>
+                            <p class="text-gray-600 dark:text-gray-400">
+                               Developed a solid understanding of core programming and coding fundamentals.
+Practiced problem-solving, logical reasoning, and structured thinking.
+Strengthened basics that later helped in advanced development.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item zoom-in will-change" data-animate data-delay="300">
+                        <div class="hamburger-card p-6 md:p-8">
+                            <div class="text-primary font-bold mb-2">2013 - 2023</div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-3">SCHOOL YEARS</h3>
+                            <p class="text-secondary font-medium mb-4">SKM VIDYANIKETHAN • CHANNAPATNA</p>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                Focused on core academics while developing logical thinking and discipline.
+Gained early exposure to computers and technology.
+Learned the importance of consistency, time management, and self-learning.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Projects -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 zoom-in will-change" data-animate>
+                <h2 class="text-4xl md:text-5xl font-bold font-space mb-6">
+                    <span class="gradient-text">Featured Projects</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Some of my recent work that I'm particularly proud of
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card hamburger-card overflow-hidden zoom-in will-change" data-animate>
+                    <div class="h-48 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
+                    <div class="p-6 md:p-8">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-500 text-sm rounded-full">React</span>
+                            <span class="px-3 py-1 bg-green-900/10 text-green-900 text-sm rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-green-500/10 text-green-500 text-sm rounded-full">MongoDB</span>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3">E-Commerce Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            Full-featured online shopping platform with payment integration and admin dashboard.
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center stagger-btn">
+                            <span>V</span><span>i</span><span>e</span><span>w</span>
+                            <span> </span>
+                            <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span>
+                            <i class="fas fa-arrow-right mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card hamburger-card overflow-hidden zoom-in will-change" data-animate data-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-secondary/20 to-purple-500/20"></div>
+                    <div class="p-6 md:p-8">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-red-700/10 text-red-500 text-sm rounded-full">Next.js</span>
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-500 text-sm rounded-full">TypeScript</span>
+                            <span class="px-3 py-1 bg-pink-500/10 text-pink-500 text-sm rounded-full">Tailwind</span>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3">Portfolio Builder</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            Drag-and-drop portfolio builder with customizable templates and real-time preview.
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center stagger-btn">
+                            <span>V</span><span>i</span><span>e</span><span>w</span>
+                            <span> </span>
+                            <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span>
+                            <i class="fas fa-arrow-right mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card hamburger-card overflow-hidden zoom-in will-change" data-animate data-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-accent/20 to-blue-500/20"></div>
+                    <div class="p-6 md:p-8">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-yellow-500/10 text-yellow-500 text-sm rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-500 text-sm rounded-full">Django</span>
+                            <span class="px-3 py-1 bg-green-500/10 text-green-500 text-sm rounded-full">PostgreSQL</span>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3">Task Management App</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            Collaborative task management application with real-time updates and team features.
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center stagger-btn">
+                            <span>V</span><span>i</span><span>e</span><span>w</span>
+                            <span> </span>
+                            <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span>
+                            <i class="fas fa-arrow-right mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="px-8 py-4 hamburger-card border border-gray-200 dark:border-gray-800 rounded-xl font-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 btn-glow stagger-btn zoom-in will-change" data-animate>
+                    <span>V</span><span>i</span><span>e</span><span>w</span>
+                    <span> </span>
+                    <span>A</span><span>l</span><span>l</span>
+                    <span> </span>
+                    <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span>
+                    <i class="fas fa-arrow-right  mr-3"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Contact -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid lg:grid-cols-2 gap-8 md:gap-12">
+                <!-- Contact Info -->
+                <div class="zoom-out will-change" data-animate>
+                    <h2 class="text-4xl md:text-5xl font-bold font-space mb-8">
+                        <span class="gradient-text">Let's Work Together</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                        Have a project in mind? I'm always open to discussing new opportunities and interesting ideas.
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-center gap-4 p-4 hamburger-card zoom-in will-change" data-animate data-delay="100">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold">Email</div>
+                                <div class="text-gray-600 dark:text-gray-400">n763122562@gmail.com</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 p-4 hamburger-card zoom-in will-change" data-animate data-delay="200">
+                            <div class="w-12 h-12 bg-gradient-to-br from-secondary to-purple-500 rounded-xl flex items-center justify-center text-white">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold">Phone</div>
+                                <div class="text-gray-600 dark:text-gray-400">+91 6362021799</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 p-4 hamburger-card zoom-in will-change" data-animate data-delay="300">
+                            <div class="w-12 h-12 bg-gradient-to-br from-accent to-blue-500 rounded-xl flex items-center justify-center text-white">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold">Location</div>
+                                <div class="text-gray-600 dark:text-gray-400">Banglore, India</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 hamburger-card rounded-xl flex items-center justify-center text-xl hover:text-primary transition-colors duration-300 zoom-in will-change" data-animate data-delay="100">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/Naseer-047" class="w-12 h-12 hamburger-card rounded-xl flex items-center justify-center text-xl hover:text-primary transition-colors duration-300 zoom-in will-change" data-animate data-delay="200">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 hamburger-card rounded-xl flex items-center justify-center text-xl hover:text-primary transition-colors duration-300 zoom-in will-change" data-animate data-delay="300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/00_naseer_47?igsh=MTd1MDA0OHgzd2tmZQ==" class="w-12 h-12 hamburger-card rounded-xl flex items-center justify-center text-xl hover:text-primary transition-colors duration-300 zoom-in will-change" data-animate data-delay="400">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="hamburger-card rounded-2xl p-6 md:p-8 zoom-in will-change" data-animate>
+                    <form class="space-y-6" id="contactForm">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Full Name</label>
+                            <input type="text" required class="w-full px-4 py-3 hamburger-card border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" required class="w-full px-4 py-3 hamburger-card border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Subject</label>
+                            <input type="text" required class="w-full px-4 py-3 hamburger-card border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea rows="4" required class="w-full px-4 py-3 hamburger-card border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all"></textarea>
+                        </div>
+                        
+                        <button type="submit" class=" sbmbtn w-full px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl font-medium shadow-float hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1 btn-glow stagger-btn ">
+                            <span class="text-black">S</span><span>e</span><span>n</span><span>d</span>
+                            <span >_</span>
+                           <span>M</span><span>e</span><span>s</span><span>s</span><span>a</span><span>g</span><span>e</span>
+                            <i class=" sbmbtn fas fa-paper-plane ml-3 mr-3"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Footer -->
+    <footer class="py-12 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold font-space gradient-text mb-6 md:mb-0 zoom-out will-change" data-animate>Naseer Pasha</div>
+                
+                <div class="flex flex-wrap justify-center gap-6 md:gap-8 mb-6 md:mb-0 stagger-menu">
+                    <a href="#home" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-300">Home</a>
+                    <a href="#about" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-300">About</a>
+                    <a href="#skills" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-300">Skills</a>
+                    <a href="#projects" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-300">Projects</a>
+                    <a href="#contact" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-300">Contact</a>
+                </div>
+                
+                <div class="text-center md:text-right zoom-in will-change" data-animate>
+                    <div class="text-gray-600 dark:text-gray-400 mb-2">
+                        © 2026 Naseer Pasha. All rights reserved.
+                    </div>
+                    <div class="text-sm text-gray-500 dark:text-gray-500">
+                        Built with ❤️ and modern web technologies
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   <script src="script.js"></script>
+</body>
+</html>
