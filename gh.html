@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dark Glassmorphism</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0b0b0b;
+  overflow:hidden;
+}
+
+/* BACKGROUND ORBS */
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 30% 60%, rgba(255,255,255,0.15), transparent 40%),
+    radial-gradient(circle at 70% 40%, rgba(255,255,255,0.12), transparent 45%);
+  filter: blur(60px);
+  z-index:-1;
+}
+
+/* GLASS CARD */
+.glass-card{
+  width:420px;
+  height:260px;
+  padding:26px;
+  border-radius:22px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.02)
+  );
+
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+
+  border:1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 40px 90px rgba(0,0,0,0.8),
+    inset 0 1px 1px rgba(255,255,255,0.35),
+    inset 0 -20px 30px rgba(0,0,0,0.8);
+
+  position:relative;
+  color:#e5e7eb;
+}
+
+/* EDGE GLOW */
+.glass-card::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:inherit;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.25)
+  );
+  filter: blur(12px);
+  opacity:0.6;
+  z-index:-1;
+}
+
+/* TOP SHINE */
+.glass-card::after{
+  content:"";
+  position:absolute;
+  top:12px;
+  left:18px;
+  width:55%;
+  height:22px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.45);
+  filter:blur(18px);
+}
+
+/* CONTENT */
+.title{
+  font-size:22px;
+  font-weight:600;
+  line-height:1.2;
+}
+
+.subtitle{
+  margin-top:10px;
+  font-size:18px;
+  opacity:0.5;
+}
+
+.meta{
+  position:absolute;
+  bottom:24px;
+  left:26px;
+  font-size:12px;
+  opacity:0.55;
+}
+
+/* DOTS */
+.dots{
+  position:absolute;
+  right:22px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.dots span{
+  width:6px;
+  height:6px;
+  background:rgba(255,255,255,0.4);
+  border-radius:50%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="glass-card">
+  <div class="title">Glass<br>Morphism</div>
+  <div class="subtitle">mockup.</div>
+
+  <div class="meta">
+    4K & FHD<br>
+    Isolated Objects &<br>
+    Editable Colors
+  </div>
+
+  <div class="dots">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+</body>
+</html>
