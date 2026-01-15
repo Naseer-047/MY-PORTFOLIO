@@ -173,7 +173,53 @@
         document.addEventListener('DOMContentLoaded', () => {
             initCustomCursor();
             initTheme();
-            initTypewriter();
-            animateSkillBars();
+;
         });
-   
+      let data=[
+{
+projecttitle:'cencus-app',
+projdesc:'This is Fully featured cencius app lorem23 dfsa dsfre  ',
+langsused1: 'python',
+langsused2:'node js',
+langsused3:'react',
+link:''
+   },
+{
+projecttitle:'Ecommerce-app',
+projdesc:'This is Fully featured Ecommerce  lorem23 dfsa dsfre  ',
+langsused1: 'python',
+langsused2:'node js',
+langsused3:'react',
+link:''
+   },
+]
+
+let clutter=``
+
+data.forEach((ele)=>{
+    clutter+=`
+     <div class="project-card hamburger-card overflow-hidden zoom-in will-change" data-animate>
+                    <div class="h-48 bg-gradient-to-br from-primary/20 to-secondary/20"><img class="w-full h-full" src="/MY-POTFOLIO/img/download.jpg" alt=""></div>
+                    <div class="p-6 md:p-8">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-500 text-sm rounded-full">${ele.langsused1}</span>
+                            <span class="px-3 py-1 bg-green-900/10 text-green-900 text-sm rounded-full">${ele.langsused2}</span>
+                            <span class="px-3 py-1 bg-green-500/10 text-green-500 text-sm rounded-full">${ele.langsused3}</span>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3">${ele.projecttitle}</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            ${ele.projdesc}
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center stagger-btn">
+                            <span>V</span><span>i</span><span>e</span><span>w</span>
+                            <span> </span>
+                            <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span>
+                            <i class="fas logu fa-arrow-right mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+    
+    `
+})
+let display=document.getElementById("disp")
+display.innerHTML=clutter
